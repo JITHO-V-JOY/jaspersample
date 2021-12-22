@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <report-component :url="url" :username="username" :password="password"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ReportComponent from "./components/jasperReport/reportComponent.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ReportComponent
+  },
+  data(){
+    return{
+      urlPro:"http://localhost:8082/jasperserver-pro/rest_v2/reports/public/Samples/Reports/Cities.html?",
+      url:"http://localhost:8081/jasperserver/rest_v2/reports/reports/interactive/CustomersReport.html?",
+      username:"jasperadmin",
+      password:"jasperadmin"
+    }
   }
 }
 </script>
